@@ -11,7 +11,6 @@ title: Usage
 - `graphql.config.yaml`
 - `graphql.config.yml`
 
-
 - `.graphqlrc` _(YAML and JSON)_
 - `.graphqlrc.json`
 - `.graphqlrc.toml`
@@ -26,7 +25,7 @@ title: Usage
 
 The simplest config specifies only `schema` which points to the source of GraphQL Schema.
 
-```yaml
+```yml
 schema: ./schema.graphql
 ```
 
@@ -38,8 +37,8 @@ To learn more about possible sources of GraphQL schema read the ["Specifying sch
 
 Another piece of GraphQL may be operations and fragments. In GraphQL Config we call them `documents`.
 
-```yaml
-...
+```yml
+# ...
 documents: src/components/**/*.graphql
 ```
 
@@ -49,8 +48,8 @@ By default, GraphQL Config is able to find and extract documents from graphql fi
 
 When you want to point out files related to the schema--for instance, React components--and make your IDE GraphQL Extension recognize those files, you can `include` and `exlude` items:
 
-```yaml
-...
+```yml
+# ...
 include: src/components/**/*.jsx
 exclude: src/components/__ignored__/**/*.jsx
 ```
@@ -61,7 +60,7 @@ exclude: src/components/__ignored__/**/*.jsx
 
 In order to pass information to GraphQL Config's consumers (like IDE extensions, Node libraries), you can use an `extensions` section that is a key-value object.
 
-```yaml
+```yml
 schema: './schema/*.graphql'
 extensions:
   codegen:
@@ -72,7 +71,7 @@ extensions:
           - typescript-resolvers
 ```
 
-Now [GraphQL Code Generator](https://graphql-code-generator.com) is able to consume that data. 
+Now [GraphQL Code Generator](https://graphql-code-generator.com) is able to consume that data.
 
 ## Projects
 
@@ -80,16 +79,16 @@ GraphQL Config allows you to define multiple projects within the same config fil
 
 Consider, for instance, writing the following configuration:
 
-```yaml
+```yml
 schema: './schema.graphql'
 documents: './src/components/**/*.graphql'
 ```
 
 This basically creates a singular, default project. In order to extend configuration to multiple projects, you can use the following approach:
 
-```yaml
+```yml
 projects:
-  foo: 
+  foo:
     schema: './packages/foo/schema.graphql'
     documents: './packages/foo/src/components/**/*.graphql'
   bar:
@@ -98,9 +97,9 @@ projects:
 
 It's also possible to define many projects where one is the default. You can simply add `default` as that project's name:
 
-```yaml
+```yml
 projects:
-  default: 
+  default:
     schema: './packages/foo/schema.graphql'
     documents: './packages/foo/src/components/**/*.graphql'
   bar:
