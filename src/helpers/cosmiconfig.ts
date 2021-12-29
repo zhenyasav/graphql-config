@@ -4,7 +4,7 @@ import {
   Loader,
   defaultLoaders,
 } from 'cosmiconfig';
-import loadTs from '@endemolshinegroup/cosmiconfig-typescript-loader';
+import loadTs from '@nice/cosmiconfig-typescript-loader';
 import {loadToml} from 'cosmiconfig-toml-loader';
 import {env} from 'string-env-interpolation';
 
